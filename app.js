@@ -23,9 +23,9 @@ const handleAuthentication = (req, res, next) => {
   // get your token
   const authorizeHeader = req.headers["authorization"];
 
-  // we will assume that authorize header is in that shape "authorize:Bearer AToken"
+  // we will assume that authorize header is in that shape "authorization:Bearer AToken"
   const token = authorizeHeader && authorizeHeader.split(" ")[1];
-  // now check if there is token or not
+  // now check if there is a token or not
   if (!token) return res.sendStatus(401);
 
   // verfiy it and get your payload
@@ -87,9 +87,10 @@ mongoose.connect(keys.MONG_URI, () => {
   app.listen(PORT);
 });
 
-// and now we are done there exist one thing how will we use this approach
-// i will tell you you will send this token after the user is authenticated to the client and the client will send this token every time
-// in the header of that request
+// and now we are done,  but there exist one thing,  how will we use this approach and integrate with our client side
+// i will tell you how this integration would work ,
+// send this token after the user is authenticated to the client and the client will send this token every time the user needs some thing from the server
+//you must send it  in the header of that request
 // and the header of the authenticated request must contain the following
 // {authorization:Berear ATokenToBeAuthenticaed}
 // and now we are done
