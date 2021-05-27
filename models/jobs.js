@@ -7,7 +7,7 @@ const JobsSchema = new Schema({
     job_id : Number,
     status : String,
     due_date : Date,
-    scheduled_date : Date,
+    scheduled_date: {type:Date, default: Date.now} ,
     priorty : String,
     job_duration : Number
 
