@@ -1,18 +1,19 @@
-const express = require("invoices");
+const express = require("express");
 const router = express.Router();
-import Invoice from "../models/invoices";
+let Invoice = require("../models/invoices.js");
 //add a new invoice
 router.post("/", (req, res) => {
-    var newinvoice = new Invoice();
-    newinvoice.invoice_id = req.body.id;
-    newinvoice.invoice_name = req.body.name;
-    newinvoice.invoice_des = req.body.description;
-    newinvoice.date_added = req.body.date_added;
-    newinvoice.due_date = req.body.due_date;
-    newinvoice.terms = req.body.terms;
-    newinvoice, contract = req.body.contract;
-
-    newinvoice.save(function (err, Invoice) {
+    //const newInvoice = new Invoice() 
+    // newInvoice.invoice_id = req.body.id;
+    // newInvoice.invoice_name = req.body.name;
+    // newInvoice.invoice_des = req.body.description;
+    // newInvoice.date_added = req.body.date_added;
+    // newInvoice.due_date = req.body.due_date;
+    // newInvoice.terms = req.body.terms;
+    // newInvoice. contract = req.body.contract;
+    let { invoice_id,invoice_name,invoice_des,date_added,due_date,terms,contract} = req.body ; 
+    const newInvoice = new Invoice( { invoice_id,invoice_name,invoice_des,date_added,due_date,terms,contract})
+    newInvoice.save(function (err, Invoice) {
         if (err) {
             res.send("error saving invoice");
         } else {

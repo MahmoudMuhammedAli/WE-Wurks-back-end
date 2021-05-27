@@ -11,6 +11,5 @@ const InvoicesSchema = new Schema({
     contract : String
 
 });
-const Invoices = mongoose.model("Invoices", InvoicesSchema);
 
-module.exports = Invoices;
+module.exports =  mongoose.model("Invoices", InvoicesSchema);

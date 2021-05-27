@@ -6,9 +6,7 @@ const jwt = require("jsonwebtoken");
 router.post("/signup", (req, res) => {
   // check if there a password and an email and a name
   console.log(req.body);
-  let { password } = req.body;
-  let { name } = req.body;
-  let { email } = req.body;
+  let { password , name , email } = req.body;
   if (!name && !email && !password) {
     console.log(name, email, password);
     return res.send("you must provide a complete data");
