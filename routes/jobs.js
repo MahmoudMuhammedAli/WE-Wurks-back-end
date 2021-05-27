@@ -3,7 +3,20 @@ const router = express.Router();
 import Job from "../models/jobs"
 
 router.post("/", (req, res) => {
-  // add job code goes here
+  var newJob = new Job();
+
+  newJob.title = req.body.title;
+  newJob.author = req.body.author;
+  newJob.category = req.body.category;
+
+  newJob.save(function(err, book) {
+    if(err) {
+      res.send('error saving book');
+    } else {
+      console.log(book);
+      res.send(book);
+    }
+  });
 });
 
 //get all jobs
