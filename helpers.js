@@ -20,7 +20,7 @@ module.exports.handleAuthentication = handleAuthentication;
 
 // we will assume that authorize header is in that shape "authorization:Bearer AToken"
 // now check if there is a token or not
-// verfiy it and get your payload
+// verify it and get your payload
 // this verify function verify that the hashed header and the hashed body matches their hashed signature
 
 // authenticate the user
