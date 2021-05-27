@@ -15,12 +15,10 @@ app.use(express.json());
 // our routes
 app.use(authRoutes);
 // all jobs routes
-
 app.use("/jobs", jobsRoutes);
 
 const PORT = process.env.PORT || 3000;
-const MONG_URI =
-  "mongodb+srv://mohamed:Password@cluster0.gbtdd.mongodb.net/wewurx?retryWrites=true&w=majority";
+const MONG_URI =process.env.URL;
 mongoose
   .connect(MONG_URI, { useNewUrlParser: true, useUnifiedTopology: true }) // object of type Promise
   .then((connection) => {
