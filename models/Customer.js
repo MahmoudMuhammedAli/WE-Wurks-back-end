@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const schema = mongoose.Schema;
 const Customer = new schema({
-    Frist_name: String,
+    First_name: String,
     Last_name: String,
     isCompany: Boolean
 });
