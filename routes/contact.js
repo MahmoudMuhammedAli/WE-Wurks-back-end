@@ -3,12 +3,8 @@ const router = express.Router();
 let Contact = require("../models/contact.js");
 //add a new contact
 router.post("/", (req, res) => {
-  var newContact = new Contact();
-
-  newContact.contact_name = req.body.name;
-  newContact.Phone = req.body.phone;
-  newContact.Email = req.body.email;
-
+  let { contact_name,Phone,Email}=req.body 
+  const newContact = new Contact({ contact_name,Phone,Email});
   newContact.save(function (err, contact) {
     if (err) {
       res.send("error saving contact");
