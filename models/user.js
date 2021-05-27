@@ -5,7 +5,7 @@ const UserSchema = new Schema({
   name: String,
   email: { type: String,required: true ,unique: true },
   password: String,
-  isManager:boolean,
+  isManager:false,
 });
 this.email==="mahmoud@gmail.com"?  this.isManager = true:this.isManager=false
 

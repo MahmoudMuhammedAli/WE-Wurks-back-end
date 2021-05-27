@@ -1,6 +1,6 @@
-const express = require("jobs");
+const express = require("express");
 const router = express.Router();
-import Job from "../models/jobs";
+let Job = require("../models/jobs.js");
 //add a new job
 router.post("/", (req, res) => {
   var newJob = new Job();
@@ -27,7 +27,7 @@ router.post("/", (req, res) => {
 //get all jobs
 router.get("/", (req, res) => {
   console.log("getting all jobs");
-  Book.find({}).exec(function (err, jobs) {
+  Job.find({}).exec(function (err, jobs) {
     if (err) {
       res.send("cant get the jobs ");
     } else {
@@ -56,16 +56,19 @@ router.put("/:id", (req, res) => {
     {
       _id: req.params.id,
     },
-    { $set: { name: req.body.name 
-    //TODO: add another update prams
-    } },
+    {
+      $set: {
+        name: req.body.name,
+        //TODO: add another update prams
+      },
+    },
     { upsert: true },
     function (err, newJob) {
       if (err) {
         res.send("error updating the job");
       } else {
         console.log(newJob);
-        res.status(200);
+        res.status(204);
       }
     }
   );
@@ -80,7 +83,6 @@ router.delete("/:id", (req, res) => {
       if (err) {
         res.send("unable to remove the job");
       } else {
-        console.log(job);
         res.status(204);
       }
     }
