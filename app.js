@@ -1,8 +1,10 @@
 const express = require("express");
+
 require("dotenv").config();
 const mongoose = require("mongoose");
 const morgan = require("morgan");
 const jwt = require("jsonwebtoken");
+
 const bodyParser = require("body-parser");
 
 const app = express();
@@ -13,7 +15,6 @@ const keys = require("./config/keys");
 // our middle wares
 app.use(morgan());
 app.use(bodyParser.urlencoded({ extended: false }));
-
 // the following line to manage us to respond with json
 app.use(express.json());
 
@@ -24,7 +25,9 @@ const handleAuthentication = (req, res, next) => {
   const authorizeHeader = req.headers["authorization"];
 
   // we will assume that authorize header is in that shape "authorization:Bearer AToken"
+
   const token = authorizeHeader && authorizeHeader.split(" ")[1];
+
   // now check if there is a token or not
   if (!token) return res.sendStatus(401);
 
@@ -53,39 +56,63 @@ app.post("/signup", (req, res) => {
     return res.send("you must provide a complete data");
   }
 
-  // check if there exist a user with these credential
-
-  User.findOne({ email }).then((user) => {
-    if (user) return res.send("the user does exist");
-    // create the user
-    const newUser = new User({ name, email, password });
-    // now our user is created but didn't saved into our database so let's save it
-    newUser.save().then((user) => res.send(user));
-  });
+  User.findOne({ email })
+    .then((user) => {
+      if (user) return res.send("the user does exist");
+      // create the user
+      const newUser = new User({ name, email, password });
+      // now our user is created but didn't saved into our database so let's save it
+      newUser.save().then((user) => res.send(user));
+    })
+    .catch((err) => console.log(err));
 });
+
 app.post("/login", (req, res) => {
   console.log("entered the login post");
+
   let { email, name, password } = req.body;
+
   if (!name && !email && !password) {
     return res.send("you must enter a complete data");
   }
+
   User.findOne({ email }).then((user) => {
     if (!user) return res.send("no matching emails");
-    if (password !== password) return res.send("wrong password");
+
+    if (password !== user.password) return res.send("wrong password");
+
     const token = jwt.sign({ sub: user._id }, "our secret");
-    console.log(token);
+
     res.send(token);
   });
 });
-app.get("/posts", handleAuthentication, (req, res) => {
+
+app.get("/jobs", handleAuthentication, (req, res) => {
   console.log(req.user);
+
+  Jobs.find().then((jobs) => {
+    res.send(jobs);
+  });
   res.send("posts");
 });
+
 const PORT = process.env.PORT || 3000;
-mongoose.connect(keys.MONG_URI, () => {
-  console.log("connected successfully");
-  app.listen(PORT);
-});
+const MONG_URI =
+  "mongodb+srv://mohamed:Password@cluster0.gbtdd.mongodb.net/wewurx?retryWrites=true&w=majority";
+mongoose
+  .connect(MONG_URI, { useNewUrlParser: true, useUnifiedTopology: true }) // object of type Promise
+  .then((connection) => {
+    console.log("connected!!!");
+    app.listen(PORT);
+  })
+  .catch((err) => {
+    console.log("something wrong has Happen!!");
+  });
+
+// mongoose.connect(keys.MONG_URI, () => {
+//   console.log("connected successfully");
+//   app.listen(PORT);
+// });
 
 // and now we are done,  but there exist one thing,  how will we use this approach and integrate with our client side
 // i will tell you how this integration would work ,
