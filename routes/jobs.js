@@ -59,17 +59,17 @@ router.put("/:id", handleAuthentication,(req, res) => {
     },
     {
       $set: {
-        name: req.body.name,
+        job_name: req.body.name,
         //TODO: add another update prams
       },
     },
     { upsert: true },
     function (err, newJob) {
       if (err) {
-        res.send("error updating the job");
+        res.send(`error updating the job ${req.params.id}`);
       } else {
         console.log(newJob);
-        res.status(204);
+        res.send(newJob);
       }
     }
   );

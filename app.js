@@ -9,6 +9,11 @@ const authRoutes = require("./routes/authroutes");
 const jobsRoutes = require("./routes/jobs");
 const userRoutes = require("./routes/user");
 const invoicesRoutes = require("./routes/invoices");
+const contact = require("./routes/contact");
+const costItems = require("./routes/cost-items");
+const customer = require("./routes/Customer");
+const mainAddress = require("./routes/MainAddress");
+
 // our middle wares
 app.use(morgan());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -16,12 +21,17 @@ app.use(express.json());
 
 // our routes
 app.use(authRoutes);
-// all jobs routes
+
 app.use("/jobs", jobsRoutes);
-// all jobs routes
+
 app.use("/user", userRoutes);
-// all jobs routes
+
 app.use("/invoices", invoicesRoutes);
+
+app.use("/contact", contact);
+app.use("/costItems", costItems);
+app.use("/customer", customer);
+app.use("/mainAddress", mainAddress);
 
 const PORT = process.env.PORT || 3000;
 const MONGO_URI = process.env.URL;

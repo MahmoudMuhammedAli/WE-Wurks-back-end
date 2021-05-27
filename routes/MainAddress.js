@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-let MainAddress = require("../models/MainAdress.js");
+let MainAddress = require("../models/MainAddress.js");
 const {handleAuthentication} = require("../helpers")
 //add a new Address
 router.post("/", handleAuthentication,(req, res) => {
