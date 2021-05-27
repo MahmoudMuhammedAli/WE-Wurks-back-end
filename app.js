@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 const app = express();
 
 const authRoutes = require("./routes/authroutes");
-
+const jobsRoutes = require("./routes/jobs");
 // our middle wares
 app.use(morgan());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -14,6 +14,9 @@ app.use(express.json());
 
 // our routes
 app.use(authRoutes);
+// all jobs routes
+
+app.use("/jobs", jobsRoutes);
 
 const PORT = process.env.PORT || 3000;
 const MONG_URI =
