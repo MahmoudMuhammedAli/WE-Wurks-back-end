@@ -1,6 +1,8 @@
 const express = require("invoices");
 const router = express.Router();
 import Invoice from "../models/invoices.js";
+let Invoice = require("../models/invoices.js");
+
 //add a new invoice
 router.post("/", (req, res) => {
     var newinvoice = new Invoice();
