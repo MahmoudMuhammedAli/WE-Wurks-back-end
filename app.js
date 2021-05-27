@@ -24,11 +24,7 @@ app.use("/user", userRoutes);
 app.use("/invoices", invoicesRoutes);
 
 const PORT = process.env.PORT || 3000;
-const MONGO_URI = process.env.MONGO_URI;
-console.log(
-  "mongodb+srv://mohamed:mongodb+srv://mohamed:Password@cluster0.gbtdd.mongodb.net/wewurx?retryWrites=true&w=majority",
-  "from mongo uri \n\n\n\n"
-);
+const MONGO_URI = process.env.URL;
 mongoose
   .connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then((connection) => {
