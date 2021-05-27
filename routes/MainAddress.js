@@ -72,13 +72,13 @@ router.put("/:id", (req, res) => {
   );
 });
 //delete a Address
-/*
+
 router.delete("/:id", (req, res) => {
   MainAddress.findOneAndRemove(
     {
       _id: req.params.id,
     },
-    function (err, job) {
+    function (err, MainAddress) {
       if (err) {
         res.send("unable to remove the Address");
       } else {
@@ -86,5 +86,5 @@ router.delete("/:id", (req, res) => {
       }
     }
   );
-});*/
+});
 module.exports = router;
