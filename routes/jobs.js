@@ -6,7 +6,8 @@ router.post("/", (req, res) => {
   // add job code goes here
 });
 
-router.get("/:id", (req, res) => {
+//get all jobs
+router.get("/", (req, res) => {
   console.log('getting all jobs');
   Book.find({})
     .exec(function(err, jobs) {
@@ -18,6 +19,21 @@ router.get("/:id", (req, res) => {
       }
     });
 });
+// get specific job
+router.get("/:id", (req, res)=>{
+  console.log('getting a job');
+  Book.findOne({
+    _id: req.params.id
+    })
+    .exec(function(err, job) {
+      if(err) {
+        res.send('error: cant get the job')
+      } else {
+        console.log(job);
+        res.json(job);
+      }
+    });
+})
 
 router.put("/:id", (req, res) => {
   // update jobs code goes here
