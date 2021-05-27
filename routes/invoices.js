@@ -1,6 +1,6 @@
 const express = require("invoices");
 const router = express.Router();
-import Invoice from "../models/invoices";
+import Invoice from "../models/invoices.js";
 //add a new invoice
 router.post("/", (req, res) => {
     var newinvoice = new Invoice();
@@ -21,6 +21,20 @@ router.post("/", (req, res) => {
         }
     });
 });
+// get specific invoice
+router.get("/:id", (req, res) => {
+    console.log("getting a invoice");
+    Book.findOne({
+      _id: req.params.id,
+    }).exec(function (err, Invoice) {
+      if (err) {
+        res.send("error: cant get the invoice");
+      } else {
+        console.log(Invoice);
+        res.json(Invoice);
+      }
+    });
+  });
 
 //update a invoice
 router.put("/:id", (req, res) => {
@@ -35,7 +49,7 @@ router.put("/:id", (req, res) => {
             }
         },
         { upsert: true },
-        function (err, newJob) {
+        function (err, _newJob) {
             if (err) {
                 res.send("error updating the invoice");
             } else {
@@ -51,7 +65,7 @@ router.delete("/:id", (req, res) => {
         {
             _id: req.params.id,
         },
-        function (err, job) {
+        function (err, _job) {
             if (err) {
                 res.send("unable to remove the invoice");
             } else {
