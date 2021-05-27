@@ -1,8 +1,10 @@
 const express = require("express");
 const router = express.Router();
 let Contact = require("../models/contact.js");
+const {handleAuthentication} = require("../helpers")
+
 //add a new contact
-router.post("/", (req, res) => {
+router.post("/",handleAuthentication, (req, res) => {
   let { contact_name,Phone,Email}=req.body 
   const newContact = new Contact({ contact_name,Phone,Email});
   newContact.save(function (err, contact) {
@@ -16,7 +18,7 @@ router.post("/", (req, res) => {
 });
 
 //get all contacts
-router.get("/", (req, res) => {
+router.get("/",handleAuthentication, (req, res) => {
   console.log("getting all contacts");
   Contact.find({}).exec(function (err, contacts) {
     if (err) {
@@ -28,7 +30,7 @@ router.get("/", (req, res) => {
   });
 });
 // get specific contact
-router.get("/:id", (req, res) => {
+router.get("/:id",handleAuthentication, (req, res) => {
   console.log("getting a contact");
   Contact.findOne({
     _id: req.params.id,
@@ -42,7 +44,7 @@ router.get("/:id", (req, res) => {
   });
 });
 //update a contact
-router.put("/:id", (req, res) => {
+router.put("/:id", handleAuthentication,(req, res) => {
     Contact.findOneAndUpdate(
     {
       _id: req.params.id,
@@ -65,7 +67,7 @@ router.put("/:id", (req, res) => {
   );
 });
 //delete a contact
-router.delete("/:id", (req, res) => {
+router.delete("/:id",handleAuthentication, (req, res) => {
     Contact.findOneAndRemove(
     {
       _id: req.params.id,

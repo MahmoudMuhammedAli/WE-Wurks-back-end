@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 let customer = require("../models/Customer.js");
+const {handleAuthentication} = require("../helpers")
+
 //add a new customer
 router.post("/", (req, res) => {
   var newCustomer = new customer();

@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
 let MainAddress = require("../models/MainAdress.js");
+const {handleAuthentication} = require("../helpers")
 //add a new Address
-router.post("/", (req, res) => {
+router.post("/", handleAuthentication,(req, res) => {
   var newMainAdress = new MainAddress();
 
   newMainAdress.Adreess = req.body.Adreess;
@@ -35,7 +36,7 @@ router.get("/", (req, res) => {
 });*/
 
 // get specific Address
-router.get("/:id", (req, res) => {
+router.get("/:id", handleAuthentication, (req, res) => {
   console.log("getting a Address");
   Book.findOne({
     _id: req.params.id,
@@ -49,7 +50,7 @@ router.get("/:id", (req, res) => {
   });
 });
 //update a Address
-router.put("/:id", (req, res) => {
+router.put("/:id", handleAuthentication, (req, res) => {
   MainAddress.findOneAndUpdate(
     {
       _id: req.params.id,
@@ -73,7 +74,7 @@ router.put("/:id", (req, res) => {
 });
 //delete a Address
 
-router.delete("/:id", (req, res) => {
+router.delete("/:id", handleAuthentication, (req, res) => {
   MainAddress.findOneAndRemove(
     {
       _id: req.params.id,

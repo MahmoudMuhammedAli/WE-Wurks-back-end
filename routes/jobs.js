@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
-let Job = require("../models/jobs.js");
+const Job = require("../models/jobs.js");
+const {handleAuthentication} = require("../helpers")
 //add a new job
-router.post("/", (req, res) => {
+router.post("/",handleAuthentication, (req, res) => {
   var newJob = new Job();
 
   newJob.job_name = req.body.name;
@@ -25,7 +26,7 @@ router.post("/", (req, res) => {
 });
 
 //get all jobs
-router.get("/", (req, res) => {
+router.get("/", handleAuthentication,(req, res) => {
   console.log("getting all jobs");
   Job.find({}).exec(function (err, jobs) {
     if (err) {
@@ -37,7 +38,7 @@ router.get("/", (req, res) => {
   });
 });
 // get specific job
-router.get("/:id", (req, res) => {
+router.get("/:id",handleAuthentication, (req, res) => {
   console.log("getting a job");
   Book.findOne({
     _id: req.params.id,
@@ -51,7 +52,7 @@ router.get("/:id", (req, res) => {
   });
 });
 //update a job
-router.put("/:id", (req, res) => {
+router.put("/:id", handleAuthentication,(req, res) => {
   Job.findOneAndUpdate(
     {
       _id: req.params.id,
@@ -74,7 +75,7 @@ router.put("/:id", (req, res) => {
   );
 });
 //delete a job
-router.delete("/:id", (req, res) => {
+router.delete("/:id",handleAuthentication, (req, res) => {
   Job.findOneAndRemove(
     {
       _id: req.params.id,
@@ -88,4 +89,29 @@ router.delete("/:id", (req, res) => {
     }
   );
 });
+
+
+// TODO:assign job
+router.put("/:id/assign", (req, res) => {
+  Job.findOneAndUpdate(
+    {
+      _id: req.params.id,
+    },
+    {
+      $set: {
+        assignedTo: req.body.assignedTo,
+      },
+    },
+    { upsert: true },
+    function (err, newJob) {
+      if (err) {
+        res.send("error updating the job");
+      } else {
+        console.log(newJob);
+        res.status(204);
+      }
+    }
+  );
+});
+
 module.exports = router;

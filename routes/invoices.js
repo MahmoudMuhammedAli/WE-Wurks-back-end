@@ -1,8 +1,10 @@
 const express = require("express");
 const router = express.Router();
 let Invoice = require("../models/invoices.js");
+const {handleAuthentication} = require("../helpers")
+
 //add a new invoice
-router.post("/", (req, res) => {
+router.post("/",  handleAuthentication,(req, res) => {
   let {
     invoice_id,
     invoice_name,
@@ -32,7 +34,7 @@ router.post("/", (req, res) => {
 });
 
 //update a invoice
-router.put("/:id", (req, res) => {
+router.put("/:id", handleAuthentication, (req, res) => {
   Invoice.findOneAndUpdate(
     {
       _id: req.params.id,
@@ -55,7 +57,7 @@ router.put("/:id", (req, res) => {
   );
 });
 //delete a invoice
-router.delete("/:id", (req, res) => {
+router.delete("/:id", handleAuthentication, (req, res) => {
   Invoice.findOneAndRemove(
     {
       _id: req.params.id,

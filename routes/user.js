@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 let user = require("../models/user.js");
+
 //add a new user
 router.post("/", (req, res) => {
   var newUser = new user();
@@ -8,7 +9,7 @@ router.post("/", (req, res) => {
   newUser.name = req.body.name;
   newUser.email = req.body.email;
   newUser.password = req.body.password;
-  newUser.isManager = req.body.isManager;
+//  newUser.isManager = req.body.isManager;
 
 
   newUser.save(function (err, user) {
