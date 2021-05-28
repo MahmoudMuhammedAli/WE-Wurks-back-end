@@ -36,7 +36,7 @@ app.use("/customer", customer);
 app.use("/mainAddress", mainAddress);
 
 const PORT = process.env.PORT || 4000;
-const MONGO_URI = process.env.MONGO_URI;
+const MONGO_URI = process.env.URL;
 mongoose
   .connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then((connection) => {
