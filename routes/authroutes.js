@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/user");
 const jwt = require("jsonwebtoken");
-
 router.post("/signup", (req, res) => {
   let { password } = req.body;
   let { name } = req.body;
@@ -29,6 +28,7 @@ router.post("/login", (req, res) => {
   console.log("entered the login post");
 
   let { email, name, password } = req.body;
+  console.log(req.body, "from req.body logn in !!! \n\n \n\n");
 
   if (!name && !email && !password) {
     return res.send("you must enter a complete data");
@@ -40,8 +40,7 @@ router.post("/login", (req, res) => {
     if (password !== user.password) return res.send("wrong password");
 
     const token = jwt.sign({ sub: user._id }, "our secret");
-
-    res.send(token);
+    res.send({ token, user });
   });
 });
 

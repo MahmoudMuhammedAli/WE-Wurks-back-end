@@ -13,8 +13,10 @@ const contact = require("./routes/contact");
 const costItems = require("./routes/cost-items");
 const customer = require("./routes/Customer");
 const mainAddress = require("./routes/MainAddress");
-
+const cors = require("cors");
 // our middle wares
+
+app.use(cors());
 app.use(morgan());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
@@ -33,8 +35,8 @@ app.use("/costItems", costItems);
 app.use("/customer", customer);
 app.use("/mainAddress", mainAddress);
 
-const PORT = process.env.PORT || 3000;
-const MONGO_URI = process.env.URL;
+const PORT = process.env.PORT || 4000;
+const MONGO_URI = process.env.MONGO_URI;
 mongoose
   .connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then((connection) => {
