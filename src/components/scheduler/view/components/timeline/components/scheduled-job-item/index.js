@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import CustomerInfo from "./components/customerinfo";
 import JobInfo from "./components/jobinfo";
 import Styles from "./scheduled-job-item.module.scss";

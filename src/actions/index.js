@@ -12,6 +12,7 @@ import {
   REMOVE_QUOTE_FILE,
   CHANGE_QUOTE_FILE_DESCRIPTION,
   CHANGE_SCHEDULER_VIEW,
+  SET_USER,
 } from "./actionsTypes";
 
 // ============= Start   addCustomer  form Action Creators ==============
@@ -111,5 +112,15 @@ export const changeSchedulerView = (view) => {
   return {
     type: CHANGE_SCHEDULER_VIEW,
     payload: view,
+  };
+};
+
+// ============= Start authentication =====================
+// --------------------------------------------------------------------
+
+export const setUser = (user) => {
+  return {
+    type: SET_USER,
+    payload: user,
   };
 };

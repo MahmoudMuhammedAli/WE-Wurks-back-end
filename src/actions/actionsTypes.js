@@ -29,3 +29,7 @@ export const CHANGE_QUOTE_FILE_DESCRIPTION = "CHANGE_QUOTE_FILE_DESCRIPTION";
 
 // actions for Scheduler View
 export const CHANGE_SCHEDULER_VIEW = "CHANGE_SCHEDULER_VIEW";
+
+// actions for authentication
+
+export const SET_USER = "SET_USER";

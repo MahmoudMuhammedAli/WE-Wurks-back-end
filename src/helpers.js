@@ -31,3 +31,15 @@ export const getDayName = (date) => {
   ];
   return days[date.getDay()];
 };
+
+export const encodeObject = (obj) => {
+  var formBody = [];
+  for (var property in obj) {
+    var encodedKey = encodeURIComponent(property);
+    var encodedValue = encodeURIComponent(obj[property]);
+    formBody.push(encodedKey + "=" + encodedValue);
+  }
+  formBody = formBody.join("&");
+
+  return formBody;
+};
