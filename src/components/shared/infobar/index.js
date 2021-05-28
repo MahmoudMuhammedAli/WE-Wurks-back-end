@@ -3,9 +3,13 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import InvoiceModal from "../sendinvoicemodal";
 import SignInModal from "../signin-modal";
+import SignUpModal from "../signup-modal";
 import Styles from "./infobar.module.scss";
 
-const AuthStatus = ({ setIsSignedInModalOpened }) => {
+const AuthStatus = ({
+  setIsSignedInModalOpened,
+  setIsSigenedUpModalOpened,
+}) => {
   const { auth } = useSelector((state) => state);
   const renderUserEmail = () => {
     if (auth.user) return auth.user.email;
@@ -21,6 +25,7 @@ const AuthStatus = ({ setIsSignedInModalOpened }) => {
       <div className={Styles.infobar__auth}>
         <button
           className={`${Styles.infobar__auth__btn} ${Styles.infobar__auth__signupbtn}`}
+          onClick={() => setIsSigenedUpModalOpened(true)}
         >
           SignUp
         </button>
@@ -43,15 +48,23 @@ const AuthStatus = ({ setIsSignedInModalOpened }) => {
 };
 const InfoBar = (props) => {
   const [isSignInModalOpened, setIsSignedInModalOpened] = useState(false);
+  const [isSignedUpModalOpened, setIsSigenedUpModalOpened] = useState(false);
 
   return (
     <div className={`${Styles.infobar}`}>
       <h4 className={`${Styles.infobar__name}`}>INfo Bar</h4>
       <Link to='/system'>System</Link>
-      <AuthStatus setIsSignedInModalOpened={setIsSignedInModalOpened} />
+      <AuthStatus
+        setIsSignedInModalOpened={setIsSignedInModalOpened}
+        setIsSigenedUpModalOpened={setIsSigenedUpModalOpened}
+      />
       <SignInModal
         isOpened={isSignInModalOpened}
         setIsOpened={setIsSignedInModalOpened}
+      />
+      <SignUpModal
+        isOpened={isSignedUpModalOpened}
+        setIsOpened={setIsSigenedUpModalOpened}
       />
     </div>
   );

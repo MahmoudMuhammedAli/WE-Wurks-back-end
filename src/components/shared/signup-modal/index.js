@@ -1,7 +1,7 @@
 import React from "react";
 import AuthFormCollector from "../auth-form-collector";
 import Modal from "../modal";
-import Styles from "./signin-modal.module.scss";
+import Styles from "./signup-modal.module.scss";
 import { useSelector } from "react-redux";
 import { encodeObject } from "../../../helpers";
 
