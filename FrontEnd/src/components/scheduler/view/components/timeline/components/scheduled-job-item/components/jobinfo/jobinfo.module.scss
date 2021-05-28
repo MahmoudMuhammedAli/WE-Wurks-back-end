@@ -1,0 +1,22 @@
+.jobinfo {
+  display: flex;
+  white-space: nowrap;
+  margin: 0.5rem 0;
+  &__status {
+    width: 0.9rem;
+    height: 0.9rem;
+    border-radius: 50%;
+    background-color: #fff;
+    margin-right: 0.5rem;
+  }
+  &__number {
+    margin-right: 0.2rem;
+  }
+  &__name {
+    margin-right: 0.5rem;
+  }
+
+  &__time {
+    display: flex;
+  }
+}

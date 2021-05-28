@@ -1,0 +1,122 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "proxima-nova", helvetica;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+:root {
+  --border-color-gray: #d9d9d9;
+  --border-color-gray2: #999;
+  --border-color-gray3: #e6e6e6;
+  --border-color-gray4: #ccc;
+  --border-color-gray5: #d0d0d0;
+  --color-red: #e66b22;
+  --text-color-gray: #808080;
+  --text-color-gray-2: #505050;
+  --text-color-gray-3: #575757;
+  --text-color-gray4: #656565;
+
+  --color-black: #4d4d4d;
+  --color-pending: #864f18;
+  --color-scheduled: #f8a225;
+  --color-travelling: #1b89e5;
+  --color-inProgress: #be4a9b;
+  --color-completed: #9ccc50;
+  --color-onHold: #989998;
+  --color-attention: #f7df36;
+  --color-cancelled: #f04d31;
+  --color-external: #903162;
+
+  /* started Invoice Coloring*/
+
+  --invoice-color-issued: #368be6;
+  --invoice-color-sent: #a64c9f;
+  --invoice-color-partPaid: #eb911d;
+  --invoice-color-paid: #6ec05c;
+  --invoice-color-overdued: #e34f0d;
+  --invoice-color-void: #bfbfbf;
+
+  /* pricing colors */
+  --price-color-profitable: #70c006;
+  --price-color-lossable: #eb5757;
+
+  --color-disabled: #999;
+  --color-active: #f2f2f2;
+
+  /* Started Quotes coloring */
+  --quote-color-draft: #ec930f;
+  --quote-color-draft-completed: #5ba046;
+  --quote-color-sent: #469ada;
+  --quote-color-onHold: #df6de7;
+  --quote-color-rejected: #e3501c;
+  --quote-color-accepted: #70c234;
+  --quote-color-button-accepted: #7ac943;
+  --quote-color-button-rejected: #ff1d25;
+}
+
+/* hide the arrows from the number input button */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* end the hide process of the arrows from the number input */
+/* Start Styling date picker */
+
+.react-datepicker__input-container {
+  border: 1.5px solid var(--border-color-gray);
+  padding: 0.5rem;
+  border-radius: 3px;
+  cursor: text;
+}
+.react-datepicker__input-container input {
+  outline: none;
+  border: none;
+}
+
+/* End Styling date picker */
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+.list-unstyled {
+  list-style-type: none;
+}
+
+.page {
+  grid-column-start: 2;
+  margin-top: 1rem;
+}
+.viewjob__page {
+  margin-left: 3rem;
+  width: 40rem;
+}
+
+.page-ml {
+  margin-left: 2rem;
+}
+
+.page-mt {
+  margin-top: 3rem;
+}
+.settings__active {
+  background-color: #f2f2f2;
+}
+.invoicemodal__datepicker {
+  width: 2rem;
+  height: 2rem;
+}

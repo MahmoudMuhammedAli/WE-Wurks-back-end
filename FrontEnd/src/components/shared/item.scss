@@ -1,0 +1,123 @@
+.item {
+  padding: 0.5rem 1rem 0.5rem 0.5rem;
+  display: flex;
+  align-items: flex-start;
+  border-bottom: 1px solid var(--border-color-gray);
+  width: 60vw;
+  min-width: 70rem;
+
+  &--invoice {
+    margin-left: 2rem;
+  }
+  &:hover {
+    background-color: #eee;
+  }
+
+  &Header {
+    &:hover {
+      background-color: #fff;
+    }
+  }
+
+  > div {
+    padding-right: 1rem;
+    font-size: 0.9rem;
+  }
+
+  &__checkAll {
+    margin-right: 1rem;
+  }
+
+  &__button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 0.9rem;
+    color: var(--text-color-gray);
+
+    > span {
+      margin-right: 0.5rem;
+    }
+
+    &Header {
+      color: var(--color-red);
+      padding-left: 1rem;
+      font-weight: bold;
+    }
+  }
+
+  &__nom {
+    width: 14rem;
+    color: var(--color-black);
+    font-weight: bold;
+    min-width: 11rem;
+  }
+
+  &__status {
+    width: 14rem;
+    color: var(--text-color-gray);
+    &__color {
+      margin-right: 0.5rem;
+      width: 1.5rem;
+      height: 0.6rem;
+      background-color: #000;
+      display: inline-block;
+    }
+  }
+
+  &__date {
+    width: 10rem;
+    color: var(--text-color-gray);
+    min-width: 8rem;
+  }
+
+  &__duedate {
+    width: 10rem;
+    color: var(--text-color-gray);
+    min-width: 8rem;
+  }
+
+  &__name {
+    width: 12rem;
+    color: var(--text-color-gray);
+    min-width: 10rem;
+  }
+
+  &__customer {
+    width: 14rem;
+    color: var(--text-color-gray);
+    min-width: 10rem;
+  }
+
+  &__address {
+    width: 14rem;
+    min-width: 10rem;
+    color: var(--text-color-gray);
+  }
+  &__amount {
+    width: 7;
+    min-width: 7rem;
+    color: var(--text-color-gray);
+  }
+  &__reset {
+    width: 7rem;
+    color: var(--text-color-gray);
+  }
+
+  &__viewbutton {
+    width: 7rem;
+    &__button {
+      background-color: var(--color-red);
+      border-radius: 4px;
+      padding: 0.5rem 1.5em;
+      color: #fff;
+      display: inline-block;
+      text-decoration: none;
+    }
+  }
+
+  &:last-of-type {
+    border: none;
+  }
+}

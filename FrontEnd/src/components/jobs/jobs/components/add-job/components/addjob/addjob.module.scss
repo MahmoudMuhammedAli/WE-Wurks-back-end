@@ -1,0 +1,236 @@
+.addjob {
+  margin-left: 2rem;
+  position: relative;
+  margin-top: 3rem;
+  &__customerseletor {
+    border: 1.5px solid var(--border-color-gray);
+    border-radius: 5px;
+    position: relative;
+    height: 1.5rem;
+    width: 15rem;
+    padding-left: 0.5rem;
+    cursor: text;
+    z-index: 1000;
+
+    &__box {
+      height: 1.5rem;
+    }
+
+    i {
+      position: absolute;
+      right: 1%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      color: var(--text-color-gray);
+      font-size: 0.7rem;
+    }
+    &__label {
+      position: absolute;
+      top: -100%;
+      color: var(--color-red);
+    }
+
+    &__select {
+      border: 1px solid var(--border-color-gray);
+      margin-left: -0.6rem;
+      width: 115%;
+      border-radius: 5px;
+      margin-top: 0.5rem;
+      padding-left: 0.5rem;
+      transform-origin: top;
+      transform: scaleY(0);
+      transition: transform 0.2s linear;
+
+      background-color: #fff;
+
+      &__alert {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 40px;
+        color: var(--text-color-gray);
+        font-weight: 250;
+      }
+
+      &__customers {
+        color: var(--color-red);
+
+        &:hover {
+          text-decoration: underline;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  &__form {
+    &__input {
+      margin-top: 1rem;
+      border: 1px solid var(--border-color-gray);
+      outline: none;
+      height: 2rem;
+      width: 15rem;
+      border-radius: 5px;
+      padding-left: 0.5rem;
+      font-size: 1.2rem;
+      font-weight: 250;
+    }
+    &__jobDescription {
+      border-top: 1px solid var(--border-color-gray);
+      border-bottom: 1px solid var(--border-color-gray);
+      margin: 2rem 0;
+      padding: 1rem 0;
+      width: 50rem;
+      &__label {
+        color: var(--text-color-gray);
+        font-weight: 200;
+        margin: 0 0 0.5rem 0.5rem;
+      }
+
+      textarea {
+        border: 1px solid var(--border-color-gray);
+        outline: none;
+        width: 25rem;
+        padding: 0.5rem;
+        border-radius: 4px;
+        height: 3rem;
+      }
+    }
+    &__addforms {
+      border-top: 1px solid var(--border-color-gray);
+      border-bottom: 1px solid var(--border-color-gray);
+      margin: 1rem 0;
+      padding: 2rem 0;
+      width: 50rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      color: var(--text-color-gray);
+      font-weight: 200;
+
+      span {
+        position: absolute;
+        left: 0.5rem;
+        top: 1.5rem;
+      }
+      &__center {
+        transform: translateY(25%);
+      }
+      &__button {
+        background-color: var(--color-red);
+        color: #fff;
+        border-radius: 5px;
+        padding: 0.5rem;
+        position: relative;
+        text-align: center;
+        cursor: pointer;
+        margin-top: 0.5rem;
+
+        i {
+          position: absolute;
+          left: 0.5rem;
+        }
+      }
+    }
+    &__locations {
+      border-bottom: 1px solid var(--border-color-gray);
+      padding-bottom: 1rem;
+      font-weight: 200;
+
+      &__heading {
+        color: var(--text-color-gray);
+        display: block;
+        margin-bottom: 1rem;
+      }
+      &__input {
+        margin-left: 1rem;
+        display: flex;
+        &__label {
+          margin-right: 0.5rem;
+          width: 8rem;
+          text-align: right;
+          color: var(--color-red);
+        }
+        &__input {
+          input {
+            border: 1.5px solid var(--border-color-gray);
+            outline: none;
+            border-radius: 3px;
+            padding: 0.2rem;
+            margin-bottom: 0.2rem;
+            width: 14rem;
+          }
+          input[type="checkbox"] {
+            width: auto;
+            margin-bottom: 0.5rem;
+          }
+          &Half {
+            input {
+              width: 7rem;
+            }
+          }
+          &Check {
+            input {
+              margin-left: 1rem;
+            }
+            label {
+              color: var(--color-red);
+            }
+          }
+        }
+      }
+    }
+    &__maincontacts {
+      border-bottom: 1px solid var(--border-color-gray);
+      padding: 1rem 0;
+      font-weight: 200;
+      &__heading {
+        margin-bottom: 1rem;
+      }
+    }
+    &__assets {
+      border-bottom: 1px solid var(--border-color-gray);
+      padding: 2rem 0;
+      color: var(--text-color-gray);
+      font-weight: 300;
+
+      &__heading {
+        font-weight: 200;
+        margin-bottom: 1rem;
+      }
+      &__option {
+        margin-right: 2rem;
+      }
+    }
+    &__assignedTo {
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--border-color-gray);
+      font-weight: 250;
+      color: var(--text-color-gray);
+      font-size: 0.9rem;
+
+      &__heading {
+        font-weight: 250;
+        margin-bottom: 1rem;
+      }
+    }
+    &__section {
+      width: 45rem;
+    }
+    &__submitbutton {
+      border: none;
+      outline: none;
+      background-color: var(--color-red);
+      color: #fff;
+      padding: 0.5rem;
+      display: block;
+      margin: 2rem 0 2rem auto;
+      cursor: pointer;
+      border-radius: 5px;
+      width: 5rem;
+      font-size: 1rem;
+    }
+  }
+}

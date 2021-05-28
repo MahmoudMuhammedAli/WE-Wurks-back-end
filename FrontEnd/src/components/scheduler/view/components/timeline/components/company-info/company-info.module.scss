@@ -1,0 +1,41 @@
+.companyinfo {
+  border: 1px solid var(--border-color-gray);
+  border-top: none;
+  width: 10rem;
+  display: flex;
+  flex-direction: column;
+
+  &__info {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__logo {
+    background-color: var(--color-red);
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+  }
+
+  &__ownernames {
+    margin-left: 0.5rem;
+    color: var(--color-black);
+    font-size: 0.9rem;
+    cursor: pointer;
+    &:hover {
+      font-weight: bold;
+    }
+  }
+  &__ownername {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 5rem;
+  }
+}

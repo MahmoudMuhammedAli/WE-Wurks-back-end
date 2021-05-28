@@ -1,0 +1,11 @@
+.day {
+  border: 1px solid var(--border-color-gray);
+  border-left: none;
+  border-top: none;
+  min-height: 6rem;
+  flex: 1 1 0px;
+
+  &__tasks {
+    height: calc(100% - 1.5rem);
+  }
+}

@@ -1,0 +1,10 @@
+.customerinfo {
+  display: flex;
+  white-space: nowrap;
+  font-size: 0.8rem;
+  align-items: center;
+  &__arrow {
+    margin: 0 0.2rem;
+    font-size: 0.7rem;
+  }
+}
