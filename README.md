@@ -1,7 +1,7 @@
 
 # WE-Wurks-back-end
 ### The back end and data base of we wurks
-### The UI is based on WorkEver https://zoma.workever.app/. 
+### The UI is based on WorkEver https://workever.com/. 
 
 # NOTE FOR THE TA : <br/>
 ### The origenal front-end Repo can be found here and it's mostly written by mohammed said: `https://github.com/KreativeKommit/wewurx`
