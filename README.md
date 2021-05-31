@@ -38,5 +38,15 @@ To run the project in dev mode         |    `npm run dev`
 To build the project for production    |    `npm run build`
 To run the project from unbuilt files  |    `npm run start`
 
+- - - -
+##Front-End
+navigate inside the FrontEnd Directory to be able to run these commands.
+
+
+action                                 |    command
+-------------------------------------- | -------------
+To run the project in dev mode         |    `npm run dev`
+To build the project for production    |    `npm run build`
+To run the project from unbuilt files  |    `npm run start`
 
 ![Blank_diagram_1](https://user-images.githubusercontent.com/70591959/120045459-54d22500-c010-11eb-86ed-247b6f81748b.png)
