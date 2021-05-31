@@ -12,6 +12,8 @@ MONGO_URI="mongodb+srv://mohamed:Password@cluster0.gbtdd.mongodb.net/wewurx?retr
 in app.js of the back-end.
 ### Tools used: ###
 
+- [x] React
+- [x] Redux
 - [x] NodeJS
 - [x] Express
 - [x] JWT
