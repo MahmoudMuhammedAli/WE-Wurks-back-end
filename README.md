@@ -4,12 +4,13 @@
 ### The UI is based on WorkEver https://workever.com/. 
 
 # NOTE FOR THE TA : <br/>
-### The origenal front-end Repo can be found here and it's mostly written by mohammed said: `https://github.com/KreativeKommit/wewurx`
-## you need to either have a .env file with the data base uri and the port to run run on "prefered port`4000`" and also the token for JWT<br/> 
+### The origenal front-end Repo can be found here and it's written by mohammed said: `https://github.com/KreativeKommit/wewurx`
+you need to either have a .env file with the data base uri and the port to run run on "prefered port`4000`" and also the token for JWT<br/> 
 if you don't want to do that you can just add 
 `ACCESS_TOKEN_SECRET="de1c6041fdbe59a5deef0c3af522155a1492fcd0090b9c107842ed1c"
 MONGO_URI="mongodb+srv://mohamed:Password@cluster0.gbtdd.mongodb.net/wewurx?retryWrites=true&w=majority"` 
 in app.js of the back-end.
+<br/><br/><br/>
 ### Tools used: ###
 
 - [x] React
