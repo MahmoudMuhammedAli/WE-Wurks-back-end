@@ -1,5 +1,5 @@
 # WE-Wurks-back-end
-### The back end and data base of we wurks
+The application serves as an advanced ToDo list aimed to assist the manager in assigning tasks to his employees work out the invoices and contact his customers. 
 ### The UI is based on WorkEver https://workever.com/. 
 
 
